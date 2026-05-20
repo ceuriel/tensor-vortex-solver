@@ -1,6 +1,30 @@
-# Tensor Vortex Solver Starter Kit
+# Tensor Vortex Solver
 
-This repository is a challenge-focused solver and benchmarking workspace for a tensor-network finite-volume study of the 2D Convecting Taylor-Green vortex in streamwise flow. It is organized around the exact analytical solution as the reference for fidelity, scaling, and comparison across solver families.
+Quantum-inspired finite-volume benchmarking for the 2D Convecting Taylor-Green vortex, centered on tensor-train compression, memory-vs-fidelity tradeoffs, and time-to-solution scaling against strong classical baselines.
+
+## At A Glance
+
+- `compressed-fv` implements a tensor-network-inspired MUSCL-TVD finite-volume solver with tensor-train state compression and structured operator-side compression.
+- `spectral`, `fv`, and `fv-muscl` provide a clean comparison stack spanning reference accuracy, simple finite-volume, and stronger finite-volume baselines.
+- The current benchmark sweep covers `Re = 10, 100, 300, 600, 900`.
+- The main measured gain today is `1.75x` to `1.99x` persistent memory reduction versus the stronger MUSCL finite-volume baseline, with only `0.13%` to `2.2%` change in L2 velocity error.
+- The runtime story is improving but not final: the compressed solver already wins outright at `Re = 300` and `Re = 600` in the current workstation sweep, but not yet across the full range.
+
+## Quick Start
+
+Run the curated four-way comparison:
+
+```bash
+python3 scripts/run_benchmark.py --solver compare --output-dir results/submission_core
+```
+
+Key outputs:
+
+- `results/submission_core/comparison_summary.csv`
+- `results/submission_core/scaling_summary.csv`
+- `results/submission_core/comparison_memory_vs_reynolds.png`
+- `results/submission_core/comparison_l2_error_vs_reynolds.png`
+- `results/submission_core/comparison_runtime_ratio_vs_reynolds.png`
 
 ## Abstract
 
