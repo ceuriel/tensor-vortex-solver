@@ -1,4 +1,4 @@
-# Efficient PDE tensor-vortex-solver for aerodynamic flow simulation<img width="468" height="12" alt="image" src="https://github.com/user-attachments/assets/6631d43d-efac-414b-b47a-cc4df62874f6" />
+# tensor-vortex-solver
 
 
 Quantum-inspired finite-volume benchmarking for the 2D Convecting Taylor-Green vortex, centered on tensor-train compression, memory-vs-fidelity tradeoffs, and time-to-solution scaling against strong classical baselines.
